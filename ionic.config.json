@@ -1,0 +1,7 @@
+{
+  "name": "identity-dictionary",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}

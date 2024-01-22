@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">identity-dictionary</string>
+    <string name="title_activity_main">identity-dictionary</string>
+    <string name="package_name">identity.dictionary</string>
+    <string name="custom_url_scheme">identity.dictionary</string>
+</resources>
