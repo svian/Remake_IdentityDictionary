@@ -1,6 +1,6 @@
-interface Props {}
+interface BlankProps {}
 
-const Blank: React.FC<Props> = (props: Props) => {
+const Blank: React.FC<BlankProps> = (props: BlankProps) => {
   return null;
 };
 
