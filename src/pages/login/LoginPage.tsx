@@ -11,7 +11,10 @@ const LoginPage: React.FC<LoginProps> = (props: LoginProps) => {
     <Page>
       <TextInput label="Username" placeholder="Username" value={username} />
       <TextInput label="Password" placeholder="Password" />
-      <TextLink label="Login" href={""} />
+      <TextLink label="Login" href={"/home"} />
+      <TextLink label="Signup" href={"/signup"} />
+
+      <TextLink label="Proceed without signing in" href={"/home"} />
     </Page>
   );
 };

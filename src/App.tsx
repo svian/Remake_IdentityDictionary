@@ -31,6 +31,9 @@ const App: React.FC = () => (
         <Route exact path="/login">
           <LoginPage />
         </Route>
+        <Route exact path="/home">
+          <LoginPage />
+        </Route>
         <Route exact path="/">
           <Redirect to="/login" />
         </Route>
