@@ -1,0 +1,5 @@
+.button {
+    background-color: transparent;
+    color: var(--ion-color-warning);
+    text-decoration: underline;
+}
