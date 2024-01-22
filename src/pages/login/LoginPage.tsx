@@ -7,7 +7,7 @@ const LoginPage: React.FC<LoginProps> = (props: LoginProps) => {
   return (
     <Page>
       <TextInput label="Username" placeholder="Username" />
-      <TextInput label="Password" placeholder="Password" />
+      <TextInput label="Password" placeholder="Test" />
     </Page>
   );
 };
