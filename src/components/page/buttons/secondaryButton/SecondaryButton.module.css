@@ -1,0 +1,10 @@
+.button {
+    height: 40px;
+    width: 300px;
+    background-color: rgba(225,122,71, 0.1);
+    border: 2px solid var(--ion-color-orange-shade);
+    border-radius: 20px;
+
+    color: var(--ion-color-orange);
+    font-size: 16px;
+}

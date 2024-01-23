@@ -5,6 +5,7 @@ import {
   IonTitle,
   IonContent,
 } from "@ionic/react";
+import css from "./Page.module.css";
 
 interface PageProps {
   children: React.ReactNode;
@@ -13,7 +14,7 @@ interface PageProps {
 
 const Page: React.FC<PageProps> = (props: PageProps) => {
   return (
-    <IonPage>
+    <IonPage className={css.margins}>
       {props.title && (
         <IonHeader>
           <IonToolbar>

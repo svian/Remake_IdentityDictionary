@@ -1,26 +1,28 @@
 import { Link } from "react-router-dom";
-import css from "./TextLink.module.css";
+import css from "./TertiaryButton.module.css";
 
-interface TextLinkProps {
+interface TertiaryButtonProps {
   label: string;
-  href: string;
+  href?: string;
   className?: string;
   external?: boolean;
   onClick?: () => void;
 }
 
-const TextLink: React.FC<TextLinkProps> = (props: TextLinkProps) => {
+const TertiaryButton: React.FC<TertiaryButtonProps> = (
+  props: TertiaryButtonProps
+) => {
   return (
     <div className={props.className}>
-      <Link to={props.href}>
+      <Link to={props.href || ""}>
         <button className={css.button}>{props.label}</button>
       </Link>
     </div>
   );
 };
 
-TextLink.defaultProps = {
+TertiaryButton.defaultProps = {
   external: false,
 };
 
-export default TextLink;
+export default TertiaryButton;

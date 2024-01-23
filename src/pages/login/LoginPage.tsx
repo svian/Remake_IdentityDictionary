@@ -1,7 +1,9 @@
 import { useState } from "react";
 import Page from "../../components/page/Page";
 import TextInput from "../../components/textInput/TextInput";
-import TextLink from "../../components/textLink/TextLink";
+import TertiaryButton from "../../components/page/buttons/tertiaryButton/TertiaryButton";
+import SecondaryButton from "../../components/page/buttons/secondaryButton/SecondaryButton";
+import PrimaryButton from "../../components/page/buttons/primaryButton/PrimaryButton";
 
 interface LoginProps {}
 
@@ -11,10 +13,10 @@ const LoginPage: React.FC<LoginProps> = (props: LoginProps) => {
     <Page>
       <TextInput label="Username" placeholder="Username" value={username} />
       <TextInput label="Password" placeholder="Password" />
-      <TextLink label="Login" href={"/home"} />
-      <TextLink label="Signup" href={"/signup"} />
+      <PrimaryButton label="Login" href={"/home"} />
+      <SecondaryButton label="Signup" href={"/signup"} />
 
-      <TextLink label="Proceed without signing in" href={"/home"} />
+      <TertiaryButton label="Proceed without signing in" href={"/home"} />
     </Page>
   );
 };
