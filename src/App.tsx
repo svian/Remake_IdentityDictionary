@@ -22,25 +22,35 @@ import "@ionic/react/css/display.css";
 import "./theme/variables.css";
 import LoginPage from "./pages/login/LoginPage";
 import HomePage from "./pages/home/HomePage";
+import { UserContext } from "./context/userContext";
+import { useCallback, useState } from "react";
 
 setupIonicReact();
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/login">
-          <LoginPage />
-        </Route>
-        <Route exact path="/home">
-          <HomePage />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/login" />
-        </Route>
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
-);
+const App: React.FC = () => {
+  const [contextUsername, setContextUsername] = useState("");
+  const updateContextUsername = useCallback((username: string): void => {
+    setContextUsername(username);
+  }, []);
+  return (
+    <IonApp>
+      <UserContext.Provider value={{ contextUsername, updateContextUsername }}>
+        <IonReactRouter>
+          <IonRouterOutlet>
+            <Route exact path="/login">
+              <LoginPage />
+            </Route>
+            <Route exact path="/home">
+              <HomePage />
+            </Route>
+            <Route exact path="/">
+              <Redirect to="/login" />
+            </Route>
+          </IonRouterOutlet>
+        </IonReactRouter>
+      </UserContext.Provider>
+    </IonApp>
+  );
+};
 
 export default App;

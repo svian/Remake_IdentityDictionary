@@ -1,3 +1,10 @@
 .stat {
     position: static;
 }
+
+.center{
+    width: 325px;
+    position: static;
+    margin-left: 5%;
+    margin-top: 60%;
+}

@@ -1,3 +1,11 @@
 .componentSpacing {
     margin: 15px;
 }
+
+.errorText {
+    font-size: 12px;
+    margin-top: -5px;
+    font-weight: 800;
+    color: var(--ion-color-red);
+    /* -webkit-text-stroke: 1px var(--ion-text-color);*/
+} 
