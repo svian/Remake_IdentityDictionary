@@ -1,7 +1,12 @@
 .margins {
     width: 325px;
-    position: absolute;
+    height: 400px;
+    position: fixed;
     left: 50%;
+    top: 30%;
     margin-left: -162.5px;
-    margin-top: 50px;
 }
+
+ion-content::part(background) {
+    background: transparent;
+  }

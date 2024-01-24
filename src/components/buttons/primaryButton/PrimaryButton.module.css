@@ -8,3 +8,7 @@
     color: var(--ion-color-orange-contrast);
     font-size: 16px;
 }
+
+.componentSpacing{
+    margin: 15px;
+}

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import css from "./TertiaryButton.module.css";
+import clsx from "clsx";
 
 interface TertiaryButtonProps {
   label: string;
@@ -13,10 +14,10 @@ const TertiaryButton: React.FC<TertiaryButtonProps> = (
   props: TertiaryButtonProps
 ) => {
   return (
-    <div className={props.className}>
-      <Link to={props.href || ""}>
-        <button className={css.button}>{props.label}</button>
-      </Link>
+    <div className={clsx(css.componentSpacing, props.className)}>
+      <button className={css.button} onClick={props.onClick}>
+        {props.label}
+      </button>
     </div>
   );
 };

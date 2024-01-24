@@ -1,0 +1,18 @@
+.waveBottom{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: -5px;
+}
+
+.waveTop{
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+
+
+.waveGroup{
+    display: flex;
+    flex-direction: column;
+}

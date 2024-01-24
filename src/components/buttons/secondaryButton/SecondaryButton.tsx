@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import css from "./SecondaryButton.module.css";
+import clsx from "clsx";
 
 interface SecondaryButtonProps {
   label: string;
@@ -13,10 +14,10 @@ const SecondaryButton: React.FC<SecondaryButtonProps> = (
   props: SecondaryButtonProps
 ) => {
   return (
-    <div className={props.className}>
-      <Link to={props.href || ""}>
-        <button className={css.button}>{props.label}</button>
-      </Link>
+    <div className={clsx(css.componentSpacing, props.className)}>
+      <button className={css.button} onClick={props.onClick}>
+        {props.label}
+      </button>
     </div>
   );
 };

@@ -21,6 +21,7 @@ import "@ionic/react/css/display.css";
 /* Theme variables */
 import "./theme/variables.css";
 import LoginPage from "./pages/login/LoginPage";
+import HomePage from "./pages/home/HomePage";
 
 setupIonicReact();
 
@@ -32,7 +33,7 @@ const App: React.FC = () => (
           <LoginPage />
         </Route>
         <Route exact path="/home">
-          <LoginPage />
+          <HomePage />
         </Route>
         <Route exact path="/">
           <Redirect to="/login" />
