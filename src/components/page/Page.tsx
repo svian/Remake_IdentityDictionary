@@ -4,17 +4,19 @@ import {
   IonToolbar,
   IonTitle,
   IonContent,
-  IonBackButton,
   IonButtons,
-  IonMenu,
-  IonMenuButton,
 } from "@ionic/react";
 import css from "./Page.module.css";
+import clsx from "clsx";
+import Waves from "../waves/Waves";
 
 interface PageProps {
   children: React.ReactNode;
   title?: string;
+  hasWaves?: boolean;
   hasBackButton?: boolean;
+  centerHorizontal?: boolean;
+  centerVertical?: boolean;
 }
 
 const Page: React.FC<PageProps> = (props: PageProps) => {
@@ -33,9 +35,37 @@ const Page: React.FC<PageProps> = (props: PageProps) => {
           </IonToolbar>
         </IonHeader>
       )}
-      <IonContent>{props.children}</IonContent>
+      <IonContent>
+        {props.hasWaves ? (
+          <Waves>
+            <div
+              className={clsx({
+                [css.center]: props.centerHorizontal,
+                [css.centerTop]: props.centerVertical,
+              })}
+            >
+              {props.children}
+            </div>
+          </Waves>
+        ) : (
+          <div
+            className={clsx({
+              [css.center]: props.centerHorizontal,
+              [css.centerTop]: props.centerVertical,
+            })}
+          >
+            {props.children}
+          </div>
+        )}
+      </IonContent>
     </IonPage>
   );
+};
+
+Page.defaultProps = {
+  centerHorizontal: true,
+  centerVertical: true,
+  hasWaves: false,
 };
 
 export default Page;

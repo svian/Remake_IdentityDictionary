@@ -1,21 +1,13 @@
-.margins {
-    /* width: 325px;
-    height: 400px;
-    position: fixed;
-    left: 50%;
-    top: 30%;
-    margin-left: -162.5px; 
-    position: static;*/
-}
-
-ion-content::part(background) {
+ ion-content::part(background) {
     background: transparent;
   } 
 
- /* ion-content {
-     --background: none;
-    background-image: url('../../../public/waves.svg');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover; 
-  }*/
+  .center{
+    width: 325px; 
+   position: static; 
+    margin-left: 5%;
+}
+
+.centerTop {
+  margin-top: 60%;
+} 

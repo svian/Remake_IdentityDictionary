@@ -1,0 +1,32 @@
+.card ion-card {
+    --background: var(--ion-color-orange-light);
+    margin: 4px;
+    border-radius: 15px;
+    box-shadow: 1px 6px 3px var(--ion-color-orange-shade);;
+  }
+  
+  ion-card-title {
+    --color: var(--ion-color-yellow-contrast);
+    font-size: 14px;
+  }
+
+ ion-card-header {
+    padding: 10px 5px;
+  }
+
+  .title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content img {
+  padding-top: 5px;
+  max-height: 60px;
+}

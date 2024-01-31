@@ -34,31 +34,33 @@ const LoginPage: React.FC<LoginProps> = (props: LoginProps) => {
   }
 
   return (
-    <Waves>
-      <Page>
-        <div className={css.center}>
-          <Input
-            label="Username"
-            placeholder="Username"
-            error={errorMessage && username === "" ? errorMessage : undefined}
-            value={username}
-            onChange={(value) => setUserName(value)}
-          />
-          <Input
-            label="Password"
-            placeholder="Password"
-            error={errorMessage && password === "" ? errorMessage : undefined}
-            value={password}
-            onChange={(value) => setPassword(value)}
-          />
-          <PrimaryButton label="Login" onClick={() => validateLogin()} />
-          <SecondaryButton label="Signup" href={"/signup"} />
-          <TertiaryButton
-            label="Proceed without signing in"
-            onClick={() => setShowNoAccountAlert(true)}
-          />
-        </div>
+    <>
+      <Page hasWaves={true}>
+        <Input
+          label="Username"
+          placeholder="Username"
+          error={errorMessage && username === "" ? errorMessage : undefined}
+          value={username}
+          onChange={(value) => setUserName(value)}
+        />
+        <Input
+          label="Password"
+          placeholder="Password"
+          error={errorMessage && password === "" ? errorMessage : undefined}
+          value={password}
+          onChange={(value) => setPassword(value)}
+        />
+        <PrimaryButton label="Login" onClick={() => validateLogin()} />
+        <SecondaryButton
+          label="Signup"
+          onClick={() => history.push("/signUp")}
+        />
+        <TertiaryButton
+          label="Proceed without signing in"
+          onClick={() => setShowNoAccountAlert(true)}
+        />
       </Page>
+
       <IonAlert
         isOpen={showNoAccountAlert}
         header={"Proceed without an account?"}
@@ -84,7 +86,7 @@ const LoginPage: React.FC<LoginProps> = (props: LoginProps) => {
           },
         ]}
       />
-    </Waves>
+    </>
   );
 };
 

@@ -1,6 +1,6 @@
 import css from "./Waves.module.css";
-import waveT from "../../../public/waveT.svg";
-import waveB from "../../../public/waveB.svg";
+import waveT from "../../../public/images/waveT.svg";
+import waveB from "../../../public/images/waveB.svg";
 
 interface WavesProps {
   children: React.ReactNode;

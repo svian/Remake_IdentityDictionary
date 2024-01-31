@@ -24,6 +24,7 @@ import LoginPage from "./pages/login/LoginPage";
 import HomePage from "./pages/home/HomePage";
 import { UserContext } from "./context/userContext";
 import { useCallback, useState } from "react";
+import SignUpPage from "./pages/signup/SignUpPage";
 
 setupIonicReact();
 
@@ -42,6 +43,9 @@ const App: React.FC = () => {
             </Route>
             <Route exact path="/home">
               <HomePage />
+            </Route>
+            <Route exact path="/signUp">
+              <SignUpPage />
             </Route>
             <Route exact path="/">
               <Redirect to="/login" />
