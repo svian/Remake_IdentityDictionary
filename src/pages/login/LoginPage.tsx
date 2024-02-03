@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Page from "../../components/page/Page";
 import Input from "../../components/input/Input";
 import TertiaryButton from "../../components/buttons/tertiaryButton/TertiaryButton";
@@ -15,6 +15,7 @@ interface LoginProps {}
 const LoginPage: React.FC<LoginProps> = (props: LoginProps) => {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [isValid, setIsValid] = useState(false);
 
   const { updateContextUsername } = useContext(UserContext) as UserContextState;
 
@@ -26,12 +27,18 @@ const LoginPage: React.FC<LoginProps> = (props: LoginProps) => {
 
   function validateLogin(): void {
     if (username !== "" && password !== "") {
-      updateContextUsername(username);
-      history.push("/home");
+      setIsValid(true);
     } else {
       setErrorMessgage("Required");
     }
   }
+
+  useEffect(() => {
+    if (isValid) {
+      updateContextUsername(username);
+      history.push("/home");
+    }
+  });
 
   return (
     <>
@@ -79,9 +86,9 @@ const LoginPage: React.FC<LoginProps> = (props: LoginProps) => {
             text: "OK",
             role: "confirm",
             handler: () => {
-              updateContextUsername("Guest");
+              setUserName("Guest");
+              setIsValid(true);
               setShowNoAccountAlert(false);
-              history.push("/home");
             },
           },
         ]}

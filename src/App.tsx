@@ -22,20 +22,18 @@ import "@ionic/react/css/display.css";
 import "./theme/variables.css";
 import LoginPage from "./pages/login/LoginPage";
 import HomePage from "./pages/home/HomePage";
-import { UserContext } from "./context/userContext";
+import { UserContext, UserContextProvider } from "./context/userContext";
 import { useCallback, useState } from "react";
 import SignUpPage from "./pages/signup/SignUpPage";
+import LearnPage from "./pages/learn/LearnPage";
+import ProfilePage from "./pages/profile/ProfilePage";
 
 setupIonicReact();
 
 const App: React.FC = () => {
-  const [contextUsername, setContextUsername] = useState("");
-  const updateContextUsername = useCallback((username: string): void => {
-    setContextUsername(username);
-  }, []);
   return (
     <IonApp>
-      <UserContext.Provider value={{ contextUsername, updateContextUsername }}>
+      <UserContextProvider>
         <IonReactRouter>
           <IonRouterOutlet>
             <Route exact path="/login">
@@ -47,12 +45,18 @@ const App: React.FC = () => {
             <Route exact path="/signUp">
               <SignUpPage />
             </Route>
+            <Route exact path="/profile">
+              <ProfilePage />
+            </Route>
+            <Route exact path="/learn/:term">
+              <LearnPage />
+            </Route>
             <Route exact path="/">
               <Redirect to="/login" />
             </Route>
           </IonRouterOutlet>
         </IonReactRouter>
-      </UserContext.Provider>
+      </UserContextProvider>
     </IonApp>
   );
 };
