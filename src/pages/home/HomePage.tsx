@@ -1,5 +1,9 @@
-import { useContext } from "react";
-import { UserContext, UserContextState } from "../../context/userContext";
+import { useContext, useEffect, useState } from "react";
+import {
+  UserContext,
+  UserContextState,
+  useUserContext,
+} from "../../context/userContext";
 import Page from "../../components/page/Page";
 import NavButton from "../../components/buttons/navButton/NavButton";
 import Card from "../../components/cards/Card";
@@ -12,30 +16,62 @@ import SAAB_Icon from "../../../public/images/homePageIcons/SAAB_Icon.svg";
 
 import SmallCardGrid from "../../components/cards/smallCard/SmallCardGrid";
 
-interface HomePageProps {}
+export enum TerminologyLabel {
+  GenderIdentity = "Gender Identity",
+  GenderExpression = "Gender Expression",
+  SexAssignedAtBirth = "Sex Assigned At Birth",
+  SexualAttraction = "Sexual Attraction",
+  RomanticAttraction = "Romantic Attraction",
+  Pronouns = "Pronouns",
+}
 
-const HomePage: React.FC<HomePageProps> = (props: HomePageProps) => {
-  const { contextUsername } = useContext(UserContext) as UserContextState;
-
+const HomePage: React.FC = () => {
+  const { contextUsername } = useUserContext();
   return (
-    <Page title={"Home"} centerVertical={false} centerHorizontal={false}>
-      <NavButton label={"Profile"} color="red" />
-      <Card title={"Learn the Terminology"}>
-        <SmallCardGrid
-          cards={[
-            { title: "Gender Identity", icon: GI_Icon },
-            { title: "Gender Expression", icon: GE_Icon },
-            { title: "Sex Assigned at Birth", icon: SAAB_Icon },
-            { title: "Sexual Attraction", icon: SA_Icon },
-            { title: "Romantic Attraction", icon: RA_Icon },
-            { title: "Pronouns", icon: Pronouns_Icon },
-          ]}
-        />
-      </Card>
-      <NavButton label={"Take the Quiz"} color="yellow" />
-      <NavButton label={"More Resources"} color="green" />
-      <NavButton label={"About the App"} color="white" />
-    </Page>
+    <>
+      <Page title={"Home"} centerContent={false}>
+        <NavButton label={"Profile"} color="red" href={"/profile"} />
+        <Card title={"Learn the Terminology"} color="orange">
+          <SmallCardGrid
+            cards={[
+              {
+                title: TerminologyLabel.GenderIdentity,
+                icon: GI_Icon,
+                href: `/learn/${TerminologyLabel.GenderIdentity}`,
+              },
+              {
+                title: TerminologyLabel.GenderExpression,
+                icon: GE_Icon,
+                href: `/learn/${TerminologyLabel.GenderExpression}`,
+              },
+              {
+                title: TerminologyLabel.SexAssignedAtBirth,
+                icon: SAAB_Icon,
+                href: `/learn/${TerminologyLabel.SexAssignedAtBirth}`,
+              },
+              {
+                title: TerminologyLabel.SexualAttraction,
+                icon: SA_Icon,
+                href: `/learn/${TerminologyLabel.SexualAttraction}`,
+              },
+              {
+                title: TerminologyLabel.RomanticAttraction,
+                icon: RA_Icon,
+                href: `/learn/${TerminologyLabel.RomanticAttraction}`,
+              },
+              {
+                title: TerminologyLabel.Pronouns,
+                icon: Pronouns_Icon,
+                href: `/learn/${TerminologyLabel.Pronouns}`,
+              },
+            ]}
+          />
+        </Card>
+        <NavButton label={"Take the Quiz"} color="yellow" />
+        <NavButton label={"More Resources"} color="green" />
+        <NavButton label={"About the App"} color="white" />
+      </Page>
+    </>
   );
 };
 

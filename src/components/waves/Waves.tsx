@@ -14,7 +14,7 @@ const Waves: React.FC<WavesProps> = (props: WavesProps) => {
           <img src={waveT} />
         </div>
 
-        <div>{props.children}</div>
+        <div style={{ display: "grid" }}>{props.children}</div>
         <div className={css.waveBottom}>
           <img src={waveB} />
         </div>

@@ -9,13 +9,14 @@ import css from "./SmallCard.module.css";
 interface SmallCardProps {
   title: string;
   icon: string;
+  href?: string;
   onClick?: () => void;
 }
 
 const SmallCard: React.FC<SmallCardProps> = (props: SmallCardProps) => {
   return (
     <div className={css.card}>
-      <IonCard>
+      <IonCard onClick={props.onClick} href={props.href}>
         <IonCardContent className={css.content}>
           <img src={props.icon} />
         </IonCardContent>

@@ -7,7 +7,7 @@
   
   ion-card-title {
     --color: var(--ion-color-yellow-contrast);
-    font-size: 14px;
+    font-size: 13px;
   }
 
  ion-card-header {

@@ -9,29 +9,35 @@ import {
 import css from "./Page.module.css";
 import clsx from "clsx";
 import Waves from "../waves/Waves";
+import backArrow from "../../../public/images/backArrow.svg";
+import pencilIcon from "../../../public/images/pencilIcon.svg";
 
 interface PageProps {
   children: React.ReactNode;
   title?: string;
   hasWaves?: boolean;
   hasBackButton?: boolean;
-  centerHorizontal?: boolean;
-  centerVertical?: boolean;
+  hasEditIcon?: boolean;
+  centerContent?: boolean;
 }
 
 const Page: React.FC<PageProps> = (props: PageProps) => {
   return (
-    <IonPage className={css.margins}>
+    <IonPage>
       {props.title && (
-        <IonHeader>
+        <IonHeader className={css.header}>
           <IonToolbar>
             {props.hasBackButton && (
-              <IonButtons slot="start">
-                <button />
+              <IonButtons slot="start" onClick={() => history.back()}>
+                <img src={backArrow} className={css.leftIcon} />
               </IonButtons>
             )}
-
             <IonTitle>{props.title}</IonTitle>
+            {props.hasEditIcon && (
+              <IonButtons slot="end" onClick={() => history.back()}>
+                <img src={pencilIcon} className={css.rightIcon} />
+              </IonButtons>
+            )}
           </IonToolbar>
         </IonHeader>
       )}
@@ -40,21 +46,21 @@ const Page: React.FC<PageProps> = (props: PageProps) => {
           <Waves>
             <div
               className={clsx({
-                [css.center]: props.centerHorizontal,
-                [css.centerTop]: props.centerVertical,
+                [css.centerContent]: props.centerContent,
               })}
             >
               {props.children}
             </div>
           </Waves>
         ) : (
-          <div
-            className={clsx({
-              [css.center]: props.centerHorizontal,
-              [css.centerTop]: props.centerVertical,
-            })}
-          >
-            {props.children}
+          <div style={{ display: "grid" }}>
+            <div
+              className={clsx({
+                [css.centerContent]: props.centerContent,
+              })}
+            >
+              {props.children}
+            </div>{" "}
           </div>
         )}
       </IonContent>
@@ -63,8 +69,7 @@ const Page: React.FC<PageProps> = (props: PageProps) => {
 };
 
 Page.defaultProps = {
-  centerHorizontal: true,
-  centerVertical: true,
+  centerContent: true,
   hasWaves: false,
 };
 

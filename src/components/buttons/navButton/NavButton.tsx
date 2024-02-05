@@ -1,6 +1,7 @@
 import css from "./NavButton.module.css";
 import clsx from "clsx";
 import rightChevron from "../../../../public/images/rightChevron.svg";
+import { IonButton, IonIcon, IonLabel } from "@ionic/react";
 
 interface NavButtonProps {
   label: string;
@@ -28,14 +29,10 @@ const NavButton: React.FC<NavButtonProps> = (props: NavButtonProps) => {
   }
 
   return (
-    <div className={clsx(css.componentSpacing, props.className)}>
-      <button
-        className={clsx(css.button, getColorCSS())}
-        onClick={props.onClick}
-      >
+    <div className={clsx(css.componentSpacing, props.className, getColorCSS())}>
+      <IonButton onClick={props.onClick} href={props.href}>
         {props.label}
-        <img src={rightChevron} className={css.rightChev} />
-      </button>
+      </IonButton>
     </div>
   );
 };

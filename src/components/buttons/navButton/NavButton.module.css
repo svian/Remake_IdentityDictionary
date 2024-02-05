@@ -1,40 +1,61 @@
-.button {
-    height: 55px;
-    width: 100%;
-    border-radius: 10px;
-    color: var(--ion-color-yellow-contrast);
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    padding-left: 15px;
-    padding-right: 15px;
-    justify-content: space-between;
-}
-.red {
-    background-color: var(--ion-color-red);
-}
 
-.orange {
-    background-color: var(--ion-color-orange);
-}
+ .red ion-button  {
+    --background: var(--ion-color-red);
+    --background-hover: #6b1e30;
+    --background-activated: #9a364e;
+    --background-focused: #9a364e;
+    --ripple-color: #2e050e;
+} 
 
-.yellow {
-    background-color: var(--ion-color-yellow);
-}
+.orange ion-button  {
+    --background: var(--ion-color-orange);
+    --background-hover: #64280a;
+    --background-activated: #c66b3e;
+    --background-focused: #c66b3e;
+    --ripple-color: #301508;
+} 
 
-.green {
-    background-color: var(--ion-color-green);
-}
+.yellow ion-button  {
+    --background: var(--ion-color-yellow);
+    --background-hover: #886f24;
+    --background-activated: #d2b14d;
+    --background-focused: #d2b14d;
+    --ripple-color: #47390d;
+} 
 
-.white {
-    background-color: var(--ion-color-white);
-}
+.green ion-button  {
+    --background: var(--ion-color-green);
+    --background-hover: #235e52;
+    --background-activated: #72e4cd;
+    --background-focused: #72e4cd;
+    --ripple-color: #04251f;
+} 
+
+.white ion-button  {
+    --background: var(--ion-color-white);
+    --background-hover: #849198;
+    --background-activated: #bcc0c2;
+    --background-focused: #bcc0c2;
+    --ripple-color: 4c626e;
+} 
 
 .componentSpacing{
-    margin: 15px;
+    margin: 7px;
+    display: flex;
+    justify-content: center;
 }
 
-.rightChev {
-    height: 20px;
-    width: 20px;
-}
+ion-button {
+    height: 55px;
+    width: 100%;
+    --color: var(--ion-color-yellow-contrast);;
+  
+    --border-radius: 10px;
+    --border-color: #000;
+    --border-style: solid;
+    --border-width: 1px;
+  
+    --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+  }

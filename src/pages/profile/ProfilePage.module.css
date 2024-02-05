@@ -1,0 +1,15 @@
+.largeText{
+    font-size: 30px;
+}
+
+.normalText{
+    font-size: 20px;
+}
+
+.smallText{
+    font-size: 12px;
+}
+
+.text {
+    text-align: center;
+}
