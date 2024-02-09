@@ -4,11 +4,11 @@ import Input from "../../components/input/Input";
 import TertiaryButton from "../../components/buttons/tertiaryButton/TertiaryButton";
 import SecondaryButton from "../../components/buttons/secondaryButton/SecondaryButton";
 import PrimaryButton from "../../components/buttons/primaryButton/PrimaryButton";
-import css from "./LoginPage.module.css";
-import Waves from "../../components/waves/Waves";
 import { IonAlert } from "@ionic/react";
 import { useHistory } from "react-router";
 import { UserContext, UserContextState } from "../../context/userContext";
+import axios from "axios";
+import { UserData } from "../../models/user";
 
 interface LoginProps {}
 
@@ -20,14 +20,21 @@ const LoginPage: React.FC<LoginProps> = (props: LoginProps) => {
   const { updateContextUsername } = useContext(UserContext) as UserContextState;
 
   const [errorMessage, setErrorMessgage] = useState("");
-
   const [showNoAccountAlert, setShowNoAccountAlert] = useState(false);
 
   const history = useHistory();
 
   function validateLogin(): void {
     if (username !== "" && password !== "") {
-      setIsValid(true);
+      axios.get("/userData.json").then((response) => {
+        response.data.pages.map((element: UserData) => {
+          if (element.username === username && element.password === password) {
+            setIsValid(true);
+          } else {
+            setErrorMessgage("Incorrect username or password");
+          }
+        });
+      });
     } else {
       setErrorMessgage("Required");
     }
@@ -46,14 +53,14 @@ const LoginPage: React.FC<LoginProps> = (props: LoginProps) => {
         <Input
           label="Username"
           placeholder="Username"
-          error={errorMessage && username === "" ? errorMessage : undefined}
+          error={errorMessage}
           value={username}
           onChange={(value) => setUserName(value)}
         />
         <Input
           label="Password"
           placeholder="Password"
-          error={errorMessage && password === "" ? errorMessage : undefined}
+          error={errorMessage}
           value={password}
           onChange={(value) => setPassword(value)}
         />

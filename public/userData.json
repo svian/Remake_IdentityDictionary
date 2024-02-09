@@ -1,0 +1,10 @@
+{
+    "users":
+            {
+                "username": "Jane",
+                "password": "password1",
+                "quizScore": null,
+                "pronouns": "",
+                "savedFlags": ""
+            }
+}

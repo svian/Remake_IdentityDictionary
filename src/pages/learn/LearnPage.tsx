@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Page from "../../components/page/Page";
 import axios from "axios";
-import { TermPageData } from "../../models/terminologyPage";
+import { TermPageData } from "../../models/terminology";
 import { useParams } from "react-router";
 
 const LearnPage: React.FC = () => {

@@ -20,7 +20,7 @@ const ProfilePage: React.FC = () => {
         {contextUsername !== "Guest" ? (
           <>
             <Card title={"Hello " + contextUsername} color="white"></Card>
-            <Card title={"Highest Quiz Score: 17/32"} color="white"></Card>
+            <Card title={"Highest Quiz Score:"} color="white"></Card>
           </>
         ) : (
           <div className={css.text}>

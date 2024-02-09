@@ -1,9 +1,3 @@
-import { useContext, useEffect, useState } from "react";
-import {
-  UserContext,
-  UserContextState,
-  useUserContext,
-} from "../../context/userContext";
 import Page from "../../components/page/Page";
 import NavButton from "../../components/buttons/navButton/NavButton";
 import Card from "../../components/cards/Card";
@@ -26,7 +20,6 @@ export enum TerminologyLabel {
 }
 
 const HomePage: React.FC = () => {
-  const { contextUsername } = useUserContext();
   return (
     <>
       <Page title={"Home"} centerContent={false}>
