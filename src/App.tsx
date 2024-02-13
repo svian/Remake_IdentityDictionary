@@ -26,6 +26,7 @@ import { UserContextProvider } from "./context/userContext";
 import SignUpPage from "./pages/signup/SignUpPage";
 import LearnPage from "./pages/learn/LearnPage";
 import ProfilePage from "./pages/profile/ProfilePage";
+import AboutPage from "./pages/about/AboutPage";
 
 setupIonicReact();
 
@@ -46,6 +47,9 @@ const App: React.FC = () => {
             </Route>
             <Route exact path="/profile">
               <ProfilePage />
+            </Route>
+            <Route exact path="/about">
+              <AboutPage />
             </Route>
             <Route exact path="/learn/:term">
               <LearnPage />

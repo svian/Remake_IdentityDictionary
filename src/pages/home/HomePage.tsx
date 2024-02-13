@@ -62,7 +62,7 @@ const HomePage: React.FC = () => {
         </Card>
         <NavButton label={"Take the Quiz"} color="yellow" />
         <NavButton label={"More Resources"} color="green" />
-        <NavButton label={"About the App"} color="white" />
+        <NavButton label={"About the App"} color="white" href={"/about"} />
       </Page>
     </>
   );
