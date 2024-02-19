@@ -3,6 +3,8 @@ import Page from "../../components/page/Page";
 import axios from "axios";
 import { TermPageData } from "../../models/terminology";
 import { useParams } from "react-router";
+import css from "./LearnPage.module.css";
+import TerminologyList from "./terminologyList";
 
 const LearnPage: React.FC = () => {
   const { term } = useParams() as {
@@ -19,7 +21,16 @@ const LearnPage: React.FC = () => {
     });
   });
 
-  return <Page centerContent={true}>{"Page for " + pageData?.title}</Page>;
+  return (
+    <Page centerContent={false} title={pageData?.title}>
+      <div className={css.background}>{pageData?.definition}</div>
+      {pageData?.hasList && (
+        <>
+          <TerminologyList termList={pageData.list || []} />
+        </>
+      )}
+    </Page>
+  );
 };
 
 export default LearnPage;

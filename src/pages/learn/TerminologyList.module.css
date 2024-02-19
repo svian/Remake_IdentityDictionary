@@ -1,0 +1,12 @@
+.flag {
+    height: 60px
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.item{
+    background-color: var(--ion-color-white);
+}

@@ -1,27 +1,17 @@
-import { IonList, IonItem, IonLabel } from "@ionic/react";
+import { IonList } from "@ionic/react";
 
 interface ListItem {
   label: string;
-  subheader: string;
+  sublabel?: string;
+  content?: React.ReactNode;
 }
 
 interface ListProps {
-  items: Array<ListItem>;
+  children: React.ReactNode;
 }
 
 const List: React.FC<ListProps> = (props: ListProps) => {
-  return (
-    <IonList>
-      {props.items.map((item, index) => {
-        return (
-          <IonItem key={index}>
-            <IonLabel>{item.label}</IonLabel>
-            <IonLabel>{item.subheader}</IonLabel>
-          </IonItem>
-        );
-      })}
-    </IonList>
-  );
+  return <IonList>{props.children}</IonList>;
 };
 
 export default List;
